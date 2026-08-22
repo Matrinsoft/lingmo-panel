@@ -25,11 +25,11 @@ sctk = { package = "smithay-client-toolkit", version = "0.20.0", features = [
 cctk = { package = "cosmic-client-toolkit", git = "https://github.com/Matrinsoft//cosmic-protocols", rev = "bc41a9a7" }
 cosmic-protocols = { git = "https://github.com/Matrinsoft//cosmic-protocols", rev = "bc41a9a7" }
 
-# [patch."https://github.com/Matrinsoft/xdg-shell-wrapper"]
+# [patch."https://github.com/pop-os/xdg-shell-wrapper"]
 # xdg-shell-wrapper-config = { path = "../xdg-shell-wrapper/xdg-shell-wrapper-config" }
 # xdg-shell-wrapper = { path = "../xdg-shell-wrapper" }
-# xdg-shell-wrapper = { git = "https://github.com/Matrinsoft/xdg-shell-wrapper//", branch = "update" }
-# xdg-shell-wrapper-config = { git = "https://github.com/Matrinsoft/xdg-shell-wrapper//", branch = "update" }
+# xdg-shell-wrapper = { git = "https://github.com/pop-os/xdg-shell-wrapper//", branch = "update" }
+# xdg-shell-wrapper-config = { git = "https://github.com/pop-os/xdg-shell-wrapper//", branch = "update" }
 
 # [patch."https://github.com/Matrinsoft/liblingmo"]
 # cosmic-config = { git = "https://github.com/Matrinsoft/libcosmic//", branch = "theme-v2" }
