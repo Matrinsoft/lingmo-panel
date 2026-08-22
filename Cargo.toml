@@ -22,8 +22,8 @@ sctk = { package = "smithay-client-toolkit", version = "0.20.0", features = [
 ] }
 
 [patch."https://github.com/Matrinsoft/lingmo-protocols"]
-cctk = { package = "cosmic-client-toolkit", git = "https://github.com/Matrinsoft//cosmic-protocols", rev = "bc41a9a7" }
-cosmic-protocols = { git = "https://github.com/Matrinsoft//cosmic-protocols", rev = "bc41a9a7" }
+cctk = { package = "cosmic-client-toolkit", git = "https://github.com/Matrinsoft/lingmo-protocols", rev = "bc41a9a7" }
+cosmic-protocols = { git = "https://github.com/Matrinsoft/lingmo-protocols", rev = "bc41a9a7" }
 
 # [patch."https://github.com/pop-os/xdg-shell-wrapper"]
 # xdg-shell-wrapper-config = { path = "../xdg-shell-wrapper/xdg-shell-wrapper-config" }
