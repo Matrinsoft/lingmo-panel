@@ -26,7 +26,7 @@ use anyhow::bail;
 use calloop::timer::Timer;
 use cctk::wayland_client::protocol::wl_pointer::WlPointer;
 use cctk::wayland_client::protocol::wl_seat;
-use lingmo::iced::id;
+use cosmic::iced::id;
 use cosmic_panel_config::{CosmicPanelConfig, CosmicPanelOuput, NAME, Side};
 use freedesktop_desktop_entry::{self, DesktopEntry, Iter};
 use itertools::izip;

@@ -1,10 +1,10 @@
 // popup for rendering overflow items in their own space
 
 use calloop::LoopHandle;
-use lingmo::iced::core::Shadow;
-use lingmo::iced::{Color, Length, id};
-use lingmo::widget::{container, space};
-use lingmo::{Theme, theme};
+use cosmic::iced::core::Shadow;
+use cosmic::iced::{Color, Length, id};
+use cosmic::widget::{container, space};
+use cosmic::{Theme, theme};
 
 use crate::iced::{Element, IcedElement, Program};
 use crate::xdg_shell_wrapper::shared_state::GlobalState;
@@ -47,7 +47,7 @@ impl Program for OverflowPopup {
         let height = self.logical_height;
         let border_width = BORDER_WIDTH as f32;
         Element::from(
-            lingmo::widget::container(space::horizontal().width(Length::Fixed(width)))
+            cosmic::widget::container(space::horizontal().width(Length::Fixed(width)))
                 .width(Length::Fixed(width))
                 .height(Length::Fixed(height))
                 .class(theme::Container::custom(move |theme| {
@@ -59,7 +59,7 @@ impl Program for OverflowPopup {
                         background: Some(
                             Color::from(cosmic.background(theme.transparent).base).into(),
                         ),
-                        border: lingmo::iced::Border {
+                        border: cosmic::iced::Border {
                             radius: radius_m.into(),
                             width: border_width,
                             color: cosmic.background(theme.transparent).divider.into(),

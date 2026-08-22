@@ -1,4 +1,4 @@
-use lingmo::widget::Id;
+use cosmic::widget::Id;
 
 #[derive(Debug, Clone)]
 pub enum PanelIcedMessage {
