@@ -8,11 +8,11 @@ use calloop::LoopHandle;
 // element for rendering a button that toggles the overflow popup when clicked
 use crate::xdg_shell_wrapper::shared_state::GlobalState;
 use crate::xdg_shell_wrapper::{self};
-use cosmic::Element;
-use cosmic::iced::core::id;
-use cosmic::iced::{Length, Padding};
-use cosmic::theme::{self, Button};
-use cosmic::widget::{Id, button, layer_container};
+use lingmo::Element;
+use lingmo::iced::core::id;
+use lingmo::iced::{Length, Padding};
+use lingmo::theme::{self, Button};
+use lingmo::widget::{Id, button, layer_container};
 use smithay::utils::{Logical, Point, Size};
 
 use crate::iced::{IcedElement, Program};
@@ -27,7 +27,7 @@ pub fn overflow_button_element(
     selected: Arc<AtomicBool>,
     icon: Cow<'static, str>,
     handle: LoopHandle<'static, GlobalState>,
-    theme: cosmic::Theme,
+    theme: lingmo::Theme,
     panel_id: usize,
 ) -> OverflowButtonElement {
     let icon_size = icon_size as f32;
@@ -112,7 +112,7 @@ impl Program for OverflowButton {
         &mut self,
         message: Self::Message,
         loop_handle: &calloop::LoopHandle<'static, xdg_shell_wrapper::shared_state::GlobalState>,
-    ) -> cosmic::Task<Self::Message> {
+    ) -> lingmo::Task<Self::Message> {
         match message {
             Message::TogglePopup => {
                 let id = self.id.clone();
@@ -159,22 +159,22 @@ impl Program for OverflowButton {
                 });
             },
         }
-        cosmic::Task::none()
+        lingmo::Task::none()
     }
 
     fn view(&self) -> crate::iced::Element<'_, Self::Message> {
         Element::from(
             button::custom(
                 layer_container(
-                    cosmic::widget::icon(cosmic::widget::icon::from_name(self.icon.clone()).into())
-                        .class(theme::Svg::Custom(Rc::new(|theme| cosmic::widget::svg::Style {
+                    lingmo::widget::icon(lingmo::widget::icon::from_name(self.icon.clone()).into())
+                        .class(theme::Svg::Custom(Rc::new(|theme| lingmo::widget::svg::Style {
                             color: Some(theme.cosmic().background(theme.transparent).on.into()),
                         })))
                         .width(Length::Fixed(self.icon_size as f32))
                         .height(Length::Fixed(self.icon_size as f32)),
                 )
-                .align_x(cosmic::iced::Alignment::Center)
-                .align_y(cosmic::iced::Alignment::Center)
+                .align_x(lingmo::iced::Alignment::Center)
+                .align_y(lingmo::iced::Alignment::Center)
                 .width(Length::Fixed(self.icon_size as f32 + self.button_padding.x()))
                 .height(Length::Fixed(self.icon_size as f32 + self.button_padding.y())),
             )

@@ -1,9 +1,9 @@
 use super::IcedProgram as Program;
-use cosmic::iced::core::event::{self, Event};
-use cosmic::iced::core::widget::operation::{self, Operation};
-use cosmic::iced::core::{Clipboard, Size, id, mouse, renderer};
-use cosmic::iced::runtime::Task;
-use cosmic::iced::runtime::user_interface::{self, UserInterface};
+use lingmo::iced::core::event::{self, Event};
+use lingmo::iced::core::widget::operation::{self, Operation};
+use lingmo::iced::core::{Clipboard, Size, id, mouse, renderer};
+use lingmo::iced::runtime::Task;
+use lingmo::iced::runtime::user_interface::{self, UserInterface};
 
 /// The execution state of a [`Program`]. It leverages caching, event
 /// processing, and rendering primitive storage.
@@ -25,7 +25,7 @@ where
 {
     /// Creates a new [`State`] with the provided [`Program`], initializing its
     /// primitive with the given logical bounds and renderer.
-    pub fn new(id: id::Id, mut program: P, bounds: Size, renderer: &mut cosmic::Renderer) -> Self {
+    pub fn new(id: id::Id, mut program: P, bounds: Size, renderer: &mut lingmo::Renderer) -> Self {
         let user_interface = build_user_interface(
             id,
             &mut program,
@@ -85,8 +85,8 @@ where
         id: id::Id,
         bounds: Size,
         cursor: mouse::Cursor,
-        renderer: &mut cosmic::Renderer,
-        theme: &cosmic::Theme,
+        renderer: &mut lingmo::Renderer,
+        theme: &lingmo::Theme,
         style: &renderer::Style,
         clipboard: &mut dyn Clipboard,
     ) -> (Vec<Event>, Option<Task<P::Message>>) {
@@ -115,7 +115,7 @@ where
         messages.append(&mut self.queued_messages);
 
         let task = if messages.is_empty() {
-            if let cosmic::iced::runtime::user_interface::State::Updated {
+            if let lingmo::iced::runtime::user_interface::State::Updated {
                 mouse_interaction, ..
             } = state
             {
@@ -138,7 +138,7 @@ where
             let mut user_interface =
                 build_user_interface(id, &mut self.program, temp_cache, renderer, bounds);
 
-            if let cosmic::iced::runtime::user_interface::State::Updated {
+            if let lingmo::iced::runtime::user_interface::State::Updated {
                 mouse_interaction, ..
             } = state
             {
@@ -159,7 +159,7 @@ where
     pub fn operate(
         &mut self,
         id: id::Id,
-        renderer: &mut cosmic::Renderer,
+        renderer: &mut lingmo::Renderer,
         operations: impl Iterator<Item = Box<dyn Operation>>,
         bounds: Size,
     ) {
@@ -195,9 +195,9 @@ fn build_user_interface<'a, P: Program>(
     _id: id::Id,
     program: &'a mut P,
     cache: user_interface::Cache,
-    renderer: &mut cosmic::Renderer,
+    renderer: &mut lingmo::Renderer,
     size: Size,
-) -> UserInterface<'a, P::Message, cosmic::Theme, cosmic::Renderer> {
+) -> UserInterface<'a, P::Message, lingmo::Theme, lingmo::Renderer> {
     let view = program.view();
 
     UserInterface::build(view, size, cache, renderer)

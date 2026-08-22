@@ -30,7 +30,7 @@ use cctk::cosmic_protocols::overlap_notify::v1::client::zcosmic_overlap_notifica
 use cctk::sctk::shell::wlr_layer::Layer;
 use cctk::wayland_client::Connection;
 
-use cosmic::iced::{border, id};
+use lingmo::iced::{border, id};
 use cosmic_protocols::corner_radius::v1::client::cosmic_corner_radius_layer_v1::CosmicCornerRadiusLayerV1;
 use freedesktop_desktop_entry::PathSource;
 use launch_pad::process::Process;
@@ -242,13 +242,13 @@ pub struct AnimateState {
 
 #[derive(Debug, Clone)]
 pub struct PanelColors {
-    pub theme: cosmic::Theme,
+    pub theme: lingmo::Theme,
     pub color_override: Option<[f32; 4]>,
     pub blur_enabled: bool,
 }
 
 impl PanelColors {
-    pub fn new(theme: cosmic::Theme) -> Self {
+    pub fn new(theme: lingmo::Theme) -> Self {
         Self { theme, color_override: None, blur_enabled: false }
     }
 
@@ -404,7 +404,7 @@ impl PanelSpace {
     pub fn new(
         config: CosmicPanelConfig,
         shared: &Rc<PanelSharedState>,
-        theme: cosmic::Theme,
+        theme: lingmo::Theme,
         s_display: DisplayHandle,
         conn: &Connection,
         qh: &QueueHandle<GlobalState>,

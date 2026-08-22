@@ -11,23 +11,23 @@ use std::time::{Duration, Instant};
 
 use crate::iced::state::State;
 use crate::xdg_shell_wrapper::shared_state::GlobalState;
-use cosmic::Theme;
-use cosmic::iced::advanced::widget::Tree;
-use cosmic::iced::core::clipboard::Null as NullClipboard;
-use cosmic::iced::core::renderer::Style;
-use cosmic::iced::core::{Color, Font, Length, Pixels};
-use cosmic::iced::event::Event;
-use cosmic::iced::futures::{self, FutureExt, StreamExt};
-use cosmic::iced::keyboard::{Event as KeyboardEvent, Modifiers as IcedModifiers};
-use cosmic::iced::mouse::{Button as MouseButton, Cursor, Event as MouseEvent, ScrollDelta};
-use cosmic::iced::runtime::Action;
-use cosmic::iced::runtime::task::into_stream;
-use cosmic::iced::touch::{Event as TouchEvent, Finger};
-use cosmic::iced::window::Event as WindowEvent;
-use cosmic::iced::{
+use lingmo::Theme;
+use lingmo::iced::advanced::widget::Tree;
+use lingmo::iced::core::clipboard::Null as NullClipboard;
+use lingmo::iced::core::renderer::Style;
+use lingmo::iced::core::{Color, Font, Length, Pixels};
+use lingmo::iced::event::Event;
+use lingmo::iced::futures::{self, FutureExt, StreamExt};
+use lingmo::iced::keyboard::{Event as KeyboardEvent, Modifiers as IcedModifiers};
+use lingmo::iced::mouse::{Button as MouseButton, Cursor, Event as MouseEvent, ScrollDelta};
+use lingmo::iced::runtime::Action;
+use lingmo::iced::runtime::task::into_stream;
+use lingmo::iced::touch::{Event as TouchEvent, Finger};
+use lingmo::iced::window::Event as WindowEvent;
+use lingmo::iced::{
     self, Limits, Point as IcedPoint, Renderer as IcedRenderer, Size as IcedSize, Task,
 };
-use cosmic::widget::Id;
+use lingmo::widget::Id;
 use iced_tiny_skia::graphics::Viewport;
 use ordered_float::OrderedFloat;
 use smithay::backend::allocator::Fourcc;
@@ -63,7 +63,7 @@ static ID: LazyLock<Id> = LazyLock::new(|| Id::new("Program"));
 thread_local! {
 pub static EVENT_LOOP_HANDLE: OnceCell<RefCell<LoopHandle<'static, GlobalState>>> = const { OnceCell::new() };
 }
-pub type Element<'a, Message> = cosmic::iced::Element<'a, Message, cosmic::Theme, cosmic::Renderer>;
+pub type Element<'a, Message> = lingmo::iced::Element<'a, Message, lingmo::Theme, lingmo::Renderer>;
 
 pub struct IcedElement<P: Program + Send + 'static>(Arc<Mutex<IcedElementInternal<P>>>);
 
@@ -190,7 +190,7 @@ impl<P: Program> IcedProgram for ProgramWrapper<P> {
         self.0.update(message, &self.1)
     }
 
-    fn view(&self) -> cosmic::Element<'_, <P as Program>::Message> {
+    fn view(&self) -> lingmo::Element<'_, <P as Program>::Message> {
         self.0.view()
     }
 }
@@ -210,7 +210,7 @@ struct IcedElementInternal<P: Program + Send + 'static> {
 
     // iced
     theme: Theme,
-    renderer: cosmic::Renderer,
+    renderer: lingmo::Renderer,
     state: State<ProgramWrapper<P>>,
 
     // futures
@@ -292,7 +292,7 @@ impl<P: Program + Send + 'static> IcedElement<P> {
         program: P,
         size: impl Into<Size<i32, Logical>>,
         handle: LoopHandle<'static, GlobalState>,
-        mut theme: cosmic::Theme,
+        mut theme: lingmo::Theme,
         panel_id: usize,
         request_redraws: bool,
     ) -> IcedElement<P> {
@@ -388,7 +388,7 @@ impl<P: Program + Send + 'static> IcedElement<P> {
         self.0.lock().unwrap().update(true);
     }
 
-    pub fn set_theme(&self, mut theme: cosmic::Theme) {
+    pub fn set_theme(&self, mut theme: lingmo::Theme) {
         theme.transparent = theme.cosmic().frosted_applets;
         let mut guard = self.0.lock().unwrap();
         guard.theme = theme.clone();
@@ -817,7 +817,7 @@ impl<P: Program + Send + 'static> SpaceElement for IcedElement<P> {
                         Transform::Normal,
                         None,
                     ),
-                    cosmic::iced::Color::TRANSPARENT,
+                    lingmo::iced::Color::TRANSPARENT,
                 ),
             );
         }
@@ -863,7 +863,7 @@ impl<P: Program + Send + 'static> SpaceElement for IcedElement<P> {
                         Transform::Normal,
                         None,
                     ),
-                    cosmic::iced::Color::TRANSPARENT,
+                    lingmo::iced::Color::TRANSPARENT,
                 ),
             );
         }
@@ -913,8 +913,8 @@ where
                     let bounds = IcedSize::new(size.w as u32, size.h as u32);
                     let viewport = Viewport::with_physical_size(bounds, scale.x);
 
-                    let damage = vec![cosmic::iced::Rectangle::new(
-                        cosmic::iced::Point::default(),
+                    let damage = vec![lingmo::iced::Rectangle::new(
+                        lingmo::iced::Point::default(),
                         viewport.logical_size(),
                     )];
 

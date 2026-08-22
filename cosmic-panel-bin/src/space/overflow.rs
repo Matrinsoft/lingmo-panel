@@ -2,7 +2,7 @@ use anyhow::bail;
 use cctk::sctk::shell::xdg::{XdgPositioner, popup};
 use cctk::wayland_client::protocol::wl_seat::WlSeat;
 use cctk::wayland_client::{Proxy, QueueHandle};
-use cosmic::iced::id;
+use lingmo::iced::id;
 
 use cosmic_panel_config::PanelAnchor;
 use sctk::compositor::Region;

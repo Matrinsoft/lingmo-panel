@@ -18,9 +18,9 @@ use cctk::cosmic_protocols::corner_radius::v1::client::cosmic_corner_radius_mana
 use cctk::toplevel_info::ToplevelInfo;
 use cctk::wayland_client::protocol::wl_seat::WlSeat;
 use cctk::workspace::{Workspace, WorkspaceGroup};
-use cosmic::cosmic_config::CosmicConfigEntry;
-use cosmic::iced::id;
-use cosmic::theme;
+use lingmo::cosmic_config::CosmicConfigEntry;
+use lingmo::iced::id;
+use lingmo::theme;
 use cosmic_panel_config::{
     CosmicPanelBackground, CosmicPanelConfig, CosmicPanelContainerConfig, CosmicPanelOuput,
     PanelAnchor,
@@ -58,8 +58,8 @@ pub struct SpaceContainer {
     pub(crate) workspace_groups: Vec<WorkspaceGroup>,
     pub(crate) workspaces: Vec<Workspace>,
     pub(crate) is_dark: bool,
-    pub(crate) light_theme: cosmic::Theme,
-    pub(crate) dark_theme: cosmic::Theme,
+    pub(crate) light_theme: lingmo::Theme,
+    pub(crate) dark_theme: lingmo::Theme,
     /// map from output name to minimized applet info
     pub(crate) minimized_applets: HashMap<String, MinimizeApplet>,
     pub(crate) overlap_notify: Option<OverlapNotifyV1>,
@@ -135,8 +135,8 @@ impl SpaceContainer {
             workspace_groups: Vec::new(),
             workspaces: Vec::new(),
             is_dark,
-            light_theme: cosmic::Theme::system(Arc::new(light)),
-            dark_theme: cosmic::Theme::system(Arc::new(dark)),
+            light_theme: lingmo::Theme::system(Arc::new(light)),
+            dark_theme: lingmo::Theme::system(Arc::new(dark)),
             minimized_applets: HashMap::new(),
             overlap_notify: None,
             shared: Rc::new(PanelSharedState {
@@ -155,7 +155,7 @@ impl SpaceContainer {
     }
 
     pub fn set_dark(&mut self, theme: theme::CosmicTheme, blur_enabled: bool) {
-        self.dark_theme = cosmic::Theme::system(Arc::new(theme));
+        self.dark_theme = lingmo::Theme::system(Arc::new(theme));
         for space in &mut self.space_list {
             let is_dark: bool = space.is_dark(self.is_dark);
 
@@ -169,7 +169,7 @@ impl SpaceContainer {
     }
 
     pub fn set_light(&mut self, theme: theme::CosmicTheme, blur_enabled: bool) {
-        self.light_theme = cosmic::Theme::system(Arc::new(theme));
+        self.light_theme = lingmo::Theme::system(Arc::new(theme));
 
         for space in &mut self.space_list {
             let is_dark = space.is_dark(self.is_dark);
@@ -183,7 +183,7 @@ impl SpaceContainer {
         }
     }
 
-    pub fn cur_theme(&self) -> cosmic::Theme {
+    pub fn cur_theme(&self) -> lingmo::Theme {
         if self.is_dark { self.dark_theme.clone() } else { self.light_theme.clone() }
     }
 

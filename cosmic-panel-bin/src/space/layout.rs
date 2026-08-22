@@ -19,7 +19,7 @@ use super::PanelSpace;
 use super::panel_space::{ClientShrinkSize, PanelClient};
 use crate::xdg_shell_wrapper::space::WrapperSpace;
 use anyhow::bail;
-use cosmic::widget::Id;
+use lingmo::widget::Id;
 use cosmic_panel_config::PanelAnchor;
 use itertools::{Itertools, chain};
 use sctk::shell::WaylandSurface;
