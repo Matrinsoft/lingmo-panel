@@ -20,4 +20,3 @@ sctk = { package = "smithay-client-toolkit", version = "0.20.0", features = [
     "calloop",
     "xkbcommon",
 ] }
-
