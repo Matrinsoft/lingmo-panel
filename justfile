@@ -1,5 +1,5 @@
 name := 'cosmic-panel'
-export APPID := 'com.system76.CosmicPanel'
+export APPID := 'com.lingmoos.LingmoPanel'
 rootdir := ''
 prefix := '/usr'
 
