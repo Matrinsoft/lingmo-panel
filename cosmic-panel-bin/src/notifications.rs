@@ -9,9 +9,9 @@ use zbus::connection::Builder;
 use zbus::proxy;
 
 #[proxy(
-    default_service = "com.system76.NotificationsSocket",
-    interface = "com.system76.NotificationsSocket",
-    default_path = "/com/system76/NotificationsSocket"
+    default_service = "com.lingmoos.LingmoNotificationsSocket",
+    interface = "com.lingmoos.LingmoNotificationsSocket",
+    default_path = "/com/lingmoos/LingmoNotificationsSocket"
 )]
 pub trait NotificationsSocket {
     /// get an fd for an applet

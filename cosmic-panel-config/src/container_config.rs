@@ -39,7 +39,7 @@ impl WrapperConfig for CosmicPanelContainerConfig {
     }
 }
 
-pub const NAME: &str = "com.system76.CosmicPanel";
+pub const NAME: &str = "com.lingmoos.LingmoPanel";
 pub const VERSION: u64 = 1;
 
 impl CosmicPanelContainerConfig {
@@ -144,23 +144,23 @@ impl Default for CosmicPanelContainerConfig {
                     background: CosmicPanelBackground::ThemeDefault,
                     plugins_wings: Some((
                         vec![
-                            "com.system76.CosmicPanelWorkspacesButton".to_string(),
-                            "com.system76.CosmicPanelAppButton".to_string(),
+                            "com.lingmoos.LingmoPanelWorkspacesButton".to_string(),
+                            "com.lingmoos.LingmoPanelAppButton".to_string(),
                         ],
                         vec![
-                            "com.system76.CosmicAppletInputSources".to_string(),
-                            "com.system76.CosmicAppletA11y".to_string(),
-                            "com.system76.CosmicAppletStatusArea".to_string(),
-                            "com.system76.CosmicAppletTiling".to_string(),
-                            "com.system76.CosmicAppletAudio".to_string(),
-                            "com.system76.CosmicAppletBluetooth".to_string(),
-                            "com.system76.CosmicAppletNetwork".to_string(),
-                            "com.system76.CosmicAppletBattery".to_string(),
-                            "com.system76.CosmicAppletNotifications".to_string(),
-                            "com.system76.CosmicAppletPower".to_string(),
+                            "com.lingmoos.LingmoAppletInputSources".to_string(),
+                            "com.lingmoos.LingmoAppletA11y".to_string(),
+                            "com.lingmoos.LingmoAppletStatusArea".to_string(),
+                            "com.lingmoos.LingmoAppletTiling".to_string(),
+                            "com.lingmoos.LingmoAppletAudio".to_string(),
+                            "com.lingmoos.LingmoAppletBluetooth".to_string(),
+                            "com.lingmoos.LingmoAppletNetwork".to_string(),
+                            "com.lingmoos.LingmoAppletBattery".to_string(),
+                            "com.lingmoos.LingmoAppletNotifications".to_string(),
+                            "com.lingmoos.LingmoAppletPower".to_string(),
                         ],
                     )),
-                    plugins_center: Some(vec!["com.system76.CosmicAppletTime".to_string()]),
+                    plugins_center: Some(vec!["com.lingmoos.LingmoAppletTime".to_string()]),
                     size_wings: None,
                     size_center: None,
                     expand_to_edges: true,
@@ -188,11 +188,11 @@ impl Default for CosmicPanelContainerConfig {
                     background: CosmicPanelBackground::ThemeDefault,
                     plugins_wings: None,
                     plugins_center: Some(vec![
-                        "com.system76.CosmicPanelLauncherButton".to_string(),
-                        "com.system76.CosmicPanelWorkspacesButton".to_string(),
-                        "com.system76.CosmicPanelAppButton".to_string(),
-                        "com.system76.CosmicAppList".to_string(),
-                        "com.system76.CosmicAppletMinimize".to_string(),
+                        "com.lingmoos.LingmoPanelLauncherButton".to_string(),
+                        "com.lingmoos.LingmoPanelWorkspacesButton".to_string(),
+                        "com.lingmoos.LingmoPanelAppButton".to_string(),
+                        "com.lingmoos.LingmoAppList".to_string(),
+                        "com.lingmoos.LingmoAppletMinimize".to_string(),
                     ]),
                     size_wings: None,
                     size_center: None,
